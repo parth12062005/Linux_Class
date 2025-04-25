@@ -1,6 +1,6 @@
 # Linux_Class
 ## Things to Remember - Himanshu Notes
-### Subpart1
+### Sub Part1
 
 - SSD := Solid State Drive
 - NVM := Non Volatile Memory
@@ -13,7 +13,7 @@
 - GRUB := Dual boot loader (Grand Unified Bootloader)
 - Hypervisor := Creation and Manangement of Virtual Machines
 
-### Subpart2
+### Sub Part2
 - /dev/sdaX := X is the partition number
 - SATA := Serial advanced Technology Attachment (connect storage devices to motherboard)
 - Greg Kroah-Hartman := Maintainers of linux kernals
@@ -23,13 +23,42 @@
 - kernal.org contains every kernal details
 
 
-### Subpart3
+### Sub Part3
 - After power on
     - POST (Power ON Self Test)
     - BIOS/UEFI
     - Bootloader
     - os select(if grub)
     - boot into OS
+- Ram Modules have types
+    - SIMM
+        - Single In-Line Memory Module
+        - 30-72 pins
+        - IBM PCs & Pentium 1,2
+        - 32-bit
+    - DIMM 
+        - Dual In-Line Memory Module
+        - 168,184,240,288 pins
+        - high speed as obivious
+        - DDR3, DDR4, DDR5 
+        - 64-bit
+- Intel Optane vs Virtual Ram
+    - OPTANE
+        - Optane is a high speed storage technology that is faster then ssd/nvme but slower then ram
+        - used in system with low ram
+    - Virtual Ram
+        - faking ssd/nvme as ram
+        - software trick
+
+- CPU Parts
+    - Registers ( limited )
+    - L1 Cache
+    - L2 Cache 
+    - RAM
+    - ROM ( ssd/nvme )
+
+### Sub Part4
+
 
 
 
