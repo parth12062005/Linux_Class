@@ -389,7 +389,6 @@ o awk ‘{sum += $1} END {print sum}’ file
 - **Awk**
     - awk 'BEGIN {*only once at begin *}; $3 > $2 {in every line && $3> $2 is met} ;END {*only one at last*}.
     - in begin { FS =""; OFS=""}
-    - 
 
       
 
