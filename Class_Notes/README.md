@@ -208,6 +208,9 @@
         - "$*" =  All argument as single string
     - for a loop
         - i=1 <br/> while [ $i -le $n ]; do <br/> 
+        &nbsp&nbsp&nbsp&nbsp echo $i <br/>
+        &nbsp&nbsp&nbsp&nbsp i=$(expr $i +1) <br/>
+        done
 
     
 
