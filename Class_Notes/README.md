@@ -104,22 +104,24 @@
     - d :- to delete line
     - Xdd :- to delete X lines.
     - :.,+10d :- delete
-    - u :- to undo last action
-    - U :- undo whole line changes
-    - x :- delete 1 word
-    - cw :- (change word) ( delete 1 word and put u in insert mode)
-    - :%s/old/new/gc
-        - : entre cli mode
-        - % to all lines
-        - s substitute
-        - g global
-        - c confirm before each replace
-    - **Mark Tricks**
-        - ma :- to create a mark with name a
-        - `a :- jump to exect position of mark a
-        - 'a :- jump to start of line where mark a was set
-        - d'a :- delete from current line to mark a
-        - : 'a, 'b d    deletes from lines from mark a to mark b
+• AWK- ($0 is used to print all the columns)
+ 1. ls -lrt | awk '{print $6, $7, $8}' = prints the 6th,7th and 8th column of ls-lrt
+ 2. ls -lrt | awk 'BEGIN { OFS=" | " } { print $6, $7, $8 }' = prints like above but joins the
+columns with whatever symbol defined in OFS (output field separator)
+ 3. cat /filename.txt | awk 'BEGIN { FS=" "; OFS=" | " } { print $6, $7, $8 }' = FS is also known
+as delimiter, i.e. it will split wrt FS but by default is Space.
+ 4. awk “ BEGIN {print “welcome” ; FS=”:”} {print $1,$6} END {print “Bhag jao”}” =
+ a. First comes the BEGIN block, where we can print some message and define the
+delimiter(FS)
+ b. Then comes the process block
+ c. And lastly comes the END block where we can end with a message
+02/04/2025
+• awk ‘ pattern {action to do} ’ file
+o awk ‘{sum += $1} END {print sum}’ file
+▪ Computation to do in {}
+▪ Also outside {}, we can add condition
+▪ awk '$2 > 25 {print $1}' data.txt
+• See order carefully mark a to mark b
         - : 'a, 'b y  yank lines from line of mark a to line of mark b
         - : \`a ,\`b y   yank exectly from mark a to mark 
     - . (dot as a command) := can repeat previously done change to new line
@@ -195,6 +197,7 @@
     - zip 
         - used to compress folder and files simultaniously 
         - used majorly with windows
+        - for zip info zipinfo/zcat -l zip_file
     - you will see pairting of tar like  .tar.gz (.tgz) and .tar.bz2 ( tar for converting files and folders to a single file and gz/bz2 for compression)
 - **Bash Scripting**
     - #!/bin/sh in starting to give the bin compiler  (known as shebang)
@@ -324,6 +327,68 @@
 - systemd introduces parallel programming where as init do it in sequentially
 - Which give the path it is using for a particular executable in PATH
     - -a give all executable in PATH
+- whatis = 1 liner descprition
+- whereis =  locate binary, source and manual page
+- !! =  show last executed command
+- printenv = print all env variables
+- tee =  print as well as append to a file
+- Gobuster -  scan dir
+
+### Sub Part 9
+- **all important system file/folder**
+    - /dev/sdaX with X being partition number 
+        - in me it is /dev/nvme0n1p1 as i have nvme
+    - /dev/null = global bin
+    - /dev/cpu/X/msr = have live data in the cpu X ( character devicec hai vo file )
+
+    - /etc/crontab for global cron-jobs
+    - /etc/group for list of groups
+    - /etc/passwd for account info  ( not passwd)
+    - /etc/var/syslog* for system log
+    - /etc/fstab for file system?
+    - /etc/shadow for hashed passwd only root can access
+    - /etc/group for group details
+    - /usr/share/bash-completion/bash_completion for compgen and tabcompletion 
+
+
+
+### Sub Part 10 
+- **Regex**
+    - \* means zero or more
+    - \+ means one or more
+    - \s means whitespace char like space or tab
+    - \S means non whitespace char
+    - \d means digits
+    - \D means non-m digits
+    - \w means word charactor( [A-Za-z0-9_])
+    - \W non word char
+    - \b word boundary like in \bcat\b matched only cat
+    - $ means ends with like abc$ matched fooabc but not fooabcd
+    - {min,max} min and max limit like \d{2,4} = 2 to 4 digits
+    - [] = range
+    - ^
+        - ^ inside [] means negative [^a] matched not a 
+        - ^ outside is starts with like ^a matches abc , aaa but not baa
+
+- **Sed**
+    - stream editor reads line by line and apply change and print the line
+    - -n option remove line by line printing
+    - interactive mode
+        - sed 's/A/B/' - 
+            - \- wait for interative input until ctrl ^ d
+    - or can give a file.txt in replace of - 
+    - can append output to a file with > newfile.txt
+    - -i means do inplace
+    - -r to include extended regex
+    - in sed 's/A/B'
+        - s means subsitute
+    - in sed '/A/p'
+        - p means print
+    - in sed '/A/d'
+        - d means delete 
+- **Awk**
+    - 
+
       
 
 
