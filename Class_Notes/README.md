@@ -189,13 +189,25 @@
         - slow compression but higher compress ratio
         - also combined with tar
     - tar
-        - used to convert multiple folders to a file
+        - used to convert multiple folders/files to a file
         - no compression
     - zip 
         - used to compress folder and files simultaniously 
         - used majorly with windows
     - you will see pairting of tar like  .tar.gz (.tgz) and .tar.bz2 ( tar for converting files and folders to a single file and gz/bz2 for compression)
--
+- **Bash Scripting**
+    - #!/bin/sh in starting to give the bin compiler  (known as shebang)
+    - when you run ./scripts.sh 2023ucs0105 parth
+        - $0 = name of script 
+        - $1 = first argument
+        - $2 = second argument
+        - $# = no of argument
+        - $? = exit code of last cmd
+        - $_ last argument of previous cmd
+        - "$@" = All argument as seperate strings
+        - "$*" =  All argument as single string
+    - for a loop
+        - i=1 <br/> while [ $i -le $n ]; do <br/> 
 
     
 
