@@ -91,7 +91,7 @@
             - User can write to the dir but **only delete their own files**
             - t in **others** section
 - pwd for present directory
-
+- lsof = list of open files
 ### Sub Part 5
 - VI cmds
     - i for insert mode
@@ -103,6 +103,7 @@
     - Xyy :- to copy nest X lines
     - d :- to delete line
     - Xdd :- to delete X lines.
+    - :.,+10d :- delete
     - u :- to undo last action
     - U :- undo whole line changes
     - x :- delete 1 word
@@ -154,7 +155,7 @@
         - 12 34 56 78 : Big
         - 78 56 34 12 : Little
 
-## Sub Part 6
+### Sub Part 6
 - compgen : for completion match 
     - compgen -A command l 
         - return all commands starting with l
@@ -203,14 +204,128 @@
         - $2 = second argument
         - $# = no of argument
         - $? = exit code of last cmd
-        - $_ last argument of previous cmd
+        - $_  = last argument of previous cmd
         - "$@" = All argument as seperate strings
         - "$*" =  All argument as single string
-    - for a loop
-        - i=1 <br/> while [ $i -le $n ]; do <br/> 
-        &nbsp&nbsp&nbsp&nbsp echo $i <br/>
-        &nbsp&nbsp&nbsp&nbsp i=$(expr $i +1) <br/>
-        done
+    - while loop
+        - i=1 <br/> while [ $i -le $n ]; do 
+            - echo $i 
+            - i=$(expr $i +1) 
+        - done
+    - for loop 
+        - for (( i=1; i<=nums; i++ )); do
+            - sum=$((sum + i))
+        - done
+    - if
+        - if [ $a -lt $b ]; then
+            - echo "a is less"
+        - elif [ $a -eq $b ]; then
+            - echo "equal"
+        - else
+            - echo "a is more"
+        - fi
+    - **Always space b/w after ([) and before (])**
+    - **COmparators**
+        - -eq = equal to
+        - -ne = not equal
+        - -lt = less than
+        - -le = less than or equal 
+        - -gt = greater than  
+        - -ge = greater than or equal 
+        - -e file = check if file exits
+        - -d dir =  is directory
+        - -s file = file size>0
+        - -nt = newer than
+        - -ot = older than
+    - EOF
+        - reads until EOF appears.
+            - cat << EOF > newfile.txt
+            - this is l1
+            - this is l2
+            - EOF
+    - String substitution happen only when "$s" not in '$s'.
+
+### Sub Part 7
+- **grep** 
+    - Search for words inside file
+    - options 
+        - -i = case insensitive
+        - -n line number
+        - -w word only
+        - **-r** recursive like in grep -r "word" .
+        - **-E** for incuding extended regrex
+- **find** 
+    - find [where] (options) "what"
+    - options
+        - -name for by name
+        - -type for by type
+            - f = file
+            - d = directory
+        - -size for by size
+        - - mtime =  modified time
+- **locate**
+    - locate use a build database of files and folders insteads searching the whole filesystem
+    - sudo updatedb for updateing the database
+    - fast then find
+
+
+### Sub Part 8
+- Pstree = process tree
+- echo $$ = process number of kernal
+- Nautilus = folder utility
+- APT = advanced package tool
+- dpkg = debian package for .deb files
+- RTC = real time clock
+    - sudo timedatectl set-local-rtc 1 =  for changing syning time b/w linux and win
+- NTP = network time protocol
+    - ps -aux for quick check
+    - ps -aef for advance check ( parent - child relation bhi hota hai, mem % etc)
+- systemctl list-units
+    - Lists all active units (services, sockets, timers, devices, etc.).
+    - systemctl list-units | grep "ssh" =  gives running ssh units.
+- systemctl list-jobs
+    - Lists all pending/running jobs
+
+- lsmod = list of loaded kernal modules in linux
+- insmod =  inseart a kernal module in linux
+- UNetbootin := an rufus
+- to combile a c programm
+    - gcc -Wall name_of_file.c -o name_of_exe
+- clang better then gcc in error dignostics 
+- hostname = name of host like parth-Victus in parth@parth-Victus
+    - hostnamectl set-hostname <name_to_give>
+    - hostid = print id of host
+- wine =  run window software in linux
+- lshw  = list all hardware
+    - -class for showing particular class of hardware
+        - network
+        - disk
+        - storage
+        - processor
+- SCSI = small computer technology attachment , advanced version of sata
+- PoE = power over ethernet
+- ifconfig = manange network interface
+    - nmcli - cli for network manager
+- iwconfig = just of wireless network 
+- MAC address =  media access control address   = 48 bits for each hardware port
+- IP = internet protocol = IPv4 32 bits ; IPv6 128 bits.
+- CVE = common vulnerabilities and Exposures ( can track in cve.org ).
+- diff = can be used to see difference b/w 2 files like diff file1.txt file2.txt
+- cmp = give difference in bytes
+- vim -d f1.txt f2.txt =  vim in diff mode.
+- iostat = give usage of cpu
+- netstat -tunapl
+    - t = tcp
+    - u = udp
+    - n = named
+    - a = all
+    - p = program
+    - l = listening
+- systemd introduces parallel programming where as init do it in sequentially
+- Which give the path it is using for a particular executable in PATH
+    - -a give all executable in PATH
+      
+
 
     
 
